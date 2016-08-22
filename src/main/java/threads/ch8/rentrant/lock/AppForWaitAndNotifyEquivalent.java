@@ -5,10 +5,10 @@ package threads.ch8.rentrant.lock;
 /**
  * Created by chattops on 8/22/2016.
  */
-public class App {
+public class AppForWaitAndNotifyEquivalent {
     public static void main(String[] a){
 
-        final Runner runner = new Runner();
+        final RunnerWaitAndNotifyEquivalent runner = new RunnerWaitAndNotifyEquivalent();
 
         Thread t1 = new Thread(new Runnable() {
           public void run() {
