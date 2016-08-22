@@ -10,7 +10,7 @@ public class SimpleThreadWithLocks implements Runnable {
 
     @Override
     public void run() {
-        compute() ;
+        compute();
     }
 
     public static synchronized void add() {
