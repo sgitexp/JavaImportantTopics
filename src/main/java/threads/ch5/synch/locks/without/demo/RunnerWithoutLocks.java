@@ -9,6 +9,7 @@ public class RunnerWithoutLocks {
         Thread t1 = new Thread(new SimpleThreadWithoutLocks());
         Thread t2 = new Thread(new SimpleThreadWithoutLocks());
 
+        long s = System.currentTimeMillis();
         t1.start();
         t2.start();
 
@@ -18,8 +19,9 @@ public class RunnerWithoutLocks {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        long e = System.currentTimeMillis();
         System.out.println(SimpleThreadWithoutLocks.getCount1());
         System.out.println(SimpleThreadWithoutLocks.getCount2());
+        System.out.println("Time taken : " +( e-s )+ " ms");
     }
 }

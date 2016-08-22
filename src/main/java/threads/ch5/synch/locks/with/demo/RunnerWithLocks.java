@@ -1,6 +1,5 @@
 package threads.ch5.synch.locks.with.demo;
 
-import threads.ch5.synch.locks.without.demo.SimpleThreadWithoutLocks;
 
 /**
  * Created by chattops on 8/19/2016.
@@ -8,9 +7,10 @@ import threads.ch5.synch.locks.without.demo.SimpleThreadWithoutLocks;
 public class RunnerWithLocks {
     public static void main(String[] args) {
 
-        Thread t1 = new Thread(new SimpleThreadWithoutLocks());
-        Thread t2 = new Thread(new SimpleThreadWithoutLocks());
+        Thread t1 = new Thread(new SimpleThreadWithLocks());
+        Thread t2 = new Thread(new SimpleThreadWithLocks());
 
+        long s = System.currentTimeMillis();
         t1.start();
         t2.start();
 
@@ -20,8 +20,9 @@ public class RunnerWithLocks {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println(SimpleThreadWithoutLocks.getCount1());
-        System.out.println(SimpleThreadWithoutLocks.getCount2());
+        long e = System.currentTimeMillis();
+        System.out.println(SimpleThreadWithLocks.getCount1());
+        System.out.println(SimpleThreadWithLocks.getCount2());
+        System.out.println("Time taken : " +( e-s )+ " ms");
     }
 }

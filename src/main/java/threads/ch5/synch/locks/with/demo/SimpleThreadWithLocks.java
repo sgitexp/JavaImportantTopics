@@ -7,27 +7,42 @@ public class SimpleThreadWithLocks implements Runnable {
 
     private static int count1 = 0;
     private static int count2 = 0;
+    private static Object lock1 = new Object();
+    private static Object lock2 = new Object();
 
     @Override
     public void run() {
         compute();
     }
 
-    public static synchronized void add() {
-        count1++;
-    }
-
-    public static synchronized void compute() {
-        for (int i = 0; i < 10000; i++) {
-            add();
-            addAgain();
+    public static void add() {
+        synchronized(lock1) {
+            count1++;
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public static void addAgain() {
-        count2++;
+        synchronized(lock2) {
+            count2++;
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    public static void compute() {
+        for (int i = 0; i < 1000; i++) {
+            add();
+            addAgain();
+        }
+    }
     public static int getCount1() {
         return count1;
     }

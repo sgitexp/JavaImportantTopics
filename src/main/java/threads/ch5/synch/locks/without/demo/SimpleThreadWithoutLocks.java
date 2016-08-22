@@ -15,10 +15,15 @@ public class SimpleThreadWithoutLocks implements Runnable {
 
     public static synchronized void add() {
         count1++;
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static synchronized void compute() {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 1000; i++) {
             add();
             addAgain();
         }
@@ -26,6 +31,11 @@ public class SimpleThreadWithoutLocks implements Runnable {
 
     public static void addAgain() {
         count2++;
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static int getCount1() {
