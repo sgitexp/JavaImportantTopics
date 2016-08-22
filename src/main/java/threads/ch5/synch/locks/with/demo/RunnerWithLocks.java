@@ -1,9 +1,11 @@
-package threads.ch5.synch.locks.demo;
+package threads.ch5.synch.locks.with.demo;
+
+import threads.ch5.synch.locks.without.demo.SimpleThreadWithoutLocks;
 
 /**
  * Created by chattops on 8/19/2016.
  */
-public class RunnerWithoutLocks {
+public class RunnerWithLocks {
     public static void main(String[] args) {
 
         Thread t1 = new Thread(new SimpleThreadWithoutLocks());
