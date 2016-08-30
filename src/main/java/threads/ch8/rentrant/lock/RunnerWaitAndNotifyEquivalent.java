@@ -16,7 +16,6 @@ public class RunnerWaitAndNotifyEquivalent {
     private Condition cond = lock.newCondition();
 
     private void increment() {
-
         for (int i = 0; i <10000 ; i++) {
             count++;
         }
