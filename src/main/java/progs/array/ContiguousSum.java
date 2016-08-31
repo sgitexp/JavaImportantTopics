@@ -7,6 +7,7 @@ public class ContiguousSum {
 
     /**
      * Given an array of positive integers and integer k, this program prints contiguous elements summing to K.
+     *
      * @param a Array of positive integers
      * @param k Target sum
      */
@@ -18,41 +19,34 @@ public class ContiguousSum {
         int counter = 0;
         boolean flag = false;
 
-        while ( endIndex < a.length ) {
+        while (true) {
+
+            while (sum < k  && endIndex < a.length) {
+                sum += a[endIndex++];
+            }
+
+            while (sum > k && startIndex <= endIndex) {
+                sum -= a[startIndex++];
+            }
+
+            if (sum < k && endIndex >= a.length) {
+                break;
+            }
 
             if (sum == k) {
 
                 counter++;
-                System.out.println("Set " + counter + ": From " + (startIndex + 1) + ", through " + (endIndex));
-                sum += a[ ++endIndex ];
-                flag = true;
+                System.out.println("Set " + counter + ": From index " + (startIndex + 1) + " through " + endIndex);
 
-            } else if (sum < k) {
+                if (!flag)
+                    flag = true;
+
+                if ( endIndex >= a.length )
+                    break;
 
                 sum += a[endIndex++];
-
-            } else if (sum > k) {
-
-                // If current element is greater than targetSum then sum of
-                // any previous element will be greater than targetSum
-                // This logic only works if all array elements are positive
-
-                if ( a[endIndex] > k ) {
-                    startIndex = endIndex = endIndex + 1;
-                    sum = a[startIndex];
-                    continue;
-                }
-
-                sum -= a[startIndex++];
-                if (startIndex == endIndex) {
-                    sum += a[ ++endIndex ];
-                }
             }
         }
-
-        if (!flag)
-            System.out.println("No elements adds upto " + k);
-
         return flag;
     }
 }
