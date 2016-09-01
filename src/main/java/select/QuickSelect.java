@@ -1,9 +1,9 @@
-package quickselect;
+package select;
 
 /**
  * Created by chattops on 8/24/2016.
  */
-public class Ops {
+public class QuickSelect {
 
 
     public static int findKthLargest(int[] a, int k) {
@@ -17,7 +17,7 @@ public class Ops {
 
         while (low < high) {
 
-            int pivot = partition( a, low, high );
+            int pivot = partition(a, low, high);
 
             if (pivot < index)
                 low = pivot + 1;
@@ -35,14 +35,14 @@ public class Ops {
 
         int pIndex = low;
 
-        while ( low <= high ) {
-            while ( low <= high && a[low] <= a[pIndex] ) low++;
-            while ( low <= high && a[high] > a[pIndex] ) high--;
-            if ( low > high ) break;
-            swap( a, low, high );
+        while (low <= high) {
+            while (low <= high && a[low] <= a[pIndex]) low++;
+            while (low <= high && a[high] > a[pIndex]) high--;
+            if (low > high) break;
+            swap(a, low, high);
         }
 
-        swap( a, high, pIndex );
+        swap(a, high, pIndex);
         pIndex = high;
 
         return pIndex;

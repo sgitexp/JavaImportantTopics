@@ -8,11 +8,6 @@ public class SimpleThreadWithoutLocks implements Runnable {
     private static int count1 = 0;
     private static int count2 = 0;
 
-    @Override
-    public void run() {
-        compute();
-    }
-
     public static synchronized void add() {
         count1++;
         try {
@@ -44,5 +39,10 @@ public class SimpleThreadWithoutLocks implements Runnable {
 
     public static int getCount2() {
         return count2;
+    }
+
+    @Override
+    public void run() {
+        compute();
     }
 }

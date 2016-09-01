@@ -10,13 +10,8 @@ public class SimpleThreadWithLocks implements Runnable {
     private static Object lock1 = new Object();
     private static Object lock2 = new Object();
 
-    @Override
-    public void run() {
-        compute();
-    }
-
     public static void add() {
-        synchronized(lock1) {
+        synchronized (lock1) {
             count1++;
             try {
                 Thread.sleep(1);
@@ -27,7 +22,7 @@ public class SimpleThreadWithLocks implements Runnable {
     }
 
     public static void addAgain() {
-        synchronized(lock2) {
+        synchronized (lock2) {
             count2++;
             try {
                 Thread.sleep(1);
@@ -43,11 +38,17 @@ public class SimpleThreadWithLocks implements Runnable {
             addAgain();
         }
     }
+
     public static int getCount1() {
         return count1;
     }
 
     public static int getCount2() {
         return count2;
+    }
+
+    @Override
+    public void run() {
+        compute();
     }
 }

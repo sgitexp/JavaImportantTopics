@@ -22,6 +22,6 @@ public class RunnerWithoutLocks {
         long e = System.currentTimeMillis();
         System.out.println(SimpleThreadWithoutLocks.getCount1());
         System.out.println(SimpleThreadWithoutLocks.getCount2());
-        System.out.println("Time taken : " +( e-s )+ " ms");
+        System.out.println("Time taken : " + (e - s) + " ms");
     }
 }

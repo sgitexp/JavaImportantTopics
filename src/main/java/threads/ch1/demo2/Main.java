@@ -1,7 +1,5 @@
 package threads.ch1.demo2;
 
-import threads.ch1.demo2.SimpleThread;
-
 /**
  * Created by sukanta on 8/13/16.
  */
@@ -9,6 +7,7 @@ public class Main {
     /**
      * Demonstrates creation of two simple threads.
      * Displays the value of a counter
+     *
      * @param args
      */
     public static void main(String[] args) {

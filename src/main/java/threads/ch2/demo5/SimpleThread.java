@@ -11,14 +11,14 @@ public class SimpleThread extends Thread {
         count++;
     }
 
-    @Override
-    public void run() {
-        for (int i = 0; i < 10000 ; i++) {
-            increment();
-        }
-    }
-
     public static void printCount() {
         System.out.println("Count is now " + count);
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 10000; i++) {
+            increment();
+        }
     }
 }

@@ -21,7 +21,7 @@ public class ContiguousSum {
 
         while (true) {
 
-            while (sum < k  && endIndex < a.length) {
+            while (sum < k && endIndex < a.length) {
                 sum += a[endIndex++];
             }
 
@@ -41,7 +41,8 @@ public class ContiguousSum {
                 if (!flag)
                     flag = true;
 
-                if ( endIndex >= a.length )
+                //break if the endIndex has crossed the maximum array index
+                if (endIndex >= a.length)
                     break;
 
                 sum += a[endIndex++];

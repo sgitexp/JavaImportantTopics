@@ -8,17 +8,17 @@ import java.util.Random;
  */
 public class Processor {
 
-    private LinkedList<Integer> list = new LinkedList<Integer>();
     private final int LIMIT = 10;
+    private LinkedList<Integer> list = new LinkedList<Integer>();
     private Object lockObject = new Object();
 
-    public void produce() throws InterruptedException{
+    public void produce() throws InterruptedException {
 
         int value = 0;
 
-        while(true) {
-            synchronized(lockObject) {
-                while(this.list.size() == LIMIT) {
+        while (true) {
+            synchronized (lockObject) {
+                while (this.list.size() == LIMIT) {
                     lockObject.wait();
                 }
                 this.list.add(value++);
@@ -27,11 +27,11 @@ public class Processor {
         }
     }
 
-    public void consume() throws InterruptedException{
+    public void consume() throws InterruptedException {
         Random random = new Random();
-        while(true) {
+        while (true) {
             synchronized (lockObject) {
-                while(list.size() == 0) {
+                while (list.size() == 0) {
                     lockObject.wait();
                 }
                 System.out.print("List size is " + list.size());

@@ -12,10 +12,10 @@ public class Main {
         t1.start();
         t2.start();
 
-        try{
+        try {
             t1.join();
             t2.join();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         SimpleThread.printCount();

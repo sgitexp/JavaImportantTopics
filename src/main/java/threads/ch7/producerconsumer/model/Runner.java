@@ -5,16 +5,17 @@ package threads.ch7.producerconsumer.model;
  */
 public class Runner {
     static Processor processor = new Processor();
-    public static void main(String[] a){
+
+    public static void main(String[] a) {
 
         Thread t1 = new Thread(new Runnable() {
-          public void run() {
-              try {
-                  processor.produce();
-              } catch (InterruptedException e) {
-                  e.printStackTrace();
-              }
-          }
+            public void run() {
+                try {
+                    processor.produce();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         });
 
         Thread t2 = new Thread(new Runnable() {

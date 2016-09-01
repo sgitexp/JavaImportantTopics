@@ -1,7 +1,5 @@
 package threads.ch2.demo2;
 
-import threads.ch2.demo2.SimpleThread;
-
 /**
  * Created by sukanta on 8/13/16.
  */

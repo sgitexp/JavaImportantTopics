@@ -6,15 +6,15 @@ package threads.ch1.demo3;
 public class SimpleThreadMain {
 
     public static void main(String args[]) {
-        Thread t1 = new Thread (new Runnable(){
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i <10 ; i++) {
-                    System.out.println("Hello " + i );
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("Hello " + i);
                 }
                 try {
                     Thread.sleep(10);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -22,15 +22,15 @@ public class SimpleThreadMain {
         });
 
 
-        Thread t2 = new Thread (new Runnable(){
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i <10 ; i++) {
-                    System.out.println("Hello " + i );
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("Hello " + i);
                 }
                 try {
                     Thread.sleep(10);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

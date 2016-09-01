@@ -8,9 +8,9 @@ import java.util.Random;
  */
 public class AnonymousWorkerThread {
 
+    Random random = new Random();
     private ArrayList<Integer> list1 = new ArrayList<Integer>();
     private ArrayList<Integer> list2 = new ArrayList<Integer>();
-    Random random = new Random();
 
     private void stageOne() {
 
@@ -31,8 +31,8 @@ public class AnonymousWorkerThread {
         list2.add(random.nextInt(100));
     }
 
-    private void process () {
-        for (int i = 0; i<1000 ; i++) {
+    private void process() {
+        for (int i = 0; i < 1000; i++) {
             stageOne();
             stageTwo();
         }
@@ -69,7 +69,6 @@ public class AnonymousWorkerThread {
         System.out.println("Time taken: " + (end - start));
         System.out.println("List1: " + list1.size() + "; List2: " + list2.size());
     }
-
 
 
 }
